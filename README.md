@@ -1,2 +1,2 @@
-# dotfiles_lzvim
-This is my personal workflow with Lazyvim
+# new_dotfiles
+I rewrite personal vim worflow with `lua`. Let's see!!!
