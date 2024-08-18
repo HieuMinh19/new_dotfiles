@@ -3,3 +3,11 @@
 -- Add any additional keymaps here
 local telescope = require("telescope.builtin")
 vim.keymap.set("n", ";", telescope.buffers, {})
+-- Define a custom function to use ripgrep with fzf
+vim.api.nvim_set_keymap("n", "<leader>p", ":Grep<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>p",
+  ":lua require('fzf').grep({ source = 'grep -rnI <word> .' })<CR>",
+  { noremap = true, silent = true }
+)
