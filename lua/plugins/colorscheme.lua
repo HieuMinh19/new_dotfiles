@@ -1,7 +1,7 @@
 return {
   "rebelot/kanagawa.nvim",
   lazy = true,
-  priority = 100,
+  priority = 1000,
   opts = function()
     return {
       transparent = true,

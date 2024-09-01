@@ -1,35 +1,23 @@
 return {
   {
-    "telescope.nvim",
-    dependencies = {
-      "nvim-telescope/telescope-file-browser.nvim",
-      "BurntSushi/ripgrep",
-      "sharkdp/fd",
-    },
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+    enabled = function()
+      return LazyVim.pick.want() == "telescope"
+    end,
+    version = false, -- telescope did only one release, so use HEAD for now
+
     keys = {
       {
-        "leader<fP>",
-        function()
-          require("telescope.builtin").find_files({
-            cwd = require("lazy.core.config").options.root,
-          })
-        end,
-        desc = "Find Plugin File",
+        "<C-p>",
+        LazyVim.pick("files", { root = false }),
+        desc = "Find Files (cwd), respects .gitignore,",
       },
       {
-        "<C-p>",
-        function()
-          local builtin = require("telescope.builtin")
-          builtin.find_files({
-            no_igore = false,
-            hidden = false,
-          })
-        end,
+        ";",
+        "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
+        desc = "Buffers, respects .gitignore",
       },
-      { "<leader>sw", LazyVim.pick("grep_string", { word_match = "-w" }), desc = "Word (Root Dir)" },
-      { "<leader>sW", LazyVim.pick("grep_string", { root = false, word_match = "-w" }), desc = "Word (cwd)" },
-      { "<leader>sw", LazyVim.pick("grep_string"), mode = "v", desc = "Selection (Root Dir)" },
-      { "<leader>sW", LazyVim.pick("grep_string", { root = false }), mode = "v", desc = "Selection (cwd)" },
     },
   },
 }
