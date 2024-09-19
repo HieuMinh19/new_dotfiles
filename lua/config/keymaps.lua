@@ -18,3 +18,7 @@ keymap.set("n", "]", ":vertical res +2<CR>", { noremap = true, silent = true })
 
 -- Vertically decrease pane size by 2
 keymap.set("n", "[", ":vertical res -2<CR>", { noremap = true, silent = true })
+
+-- Using tab in visual mode will indent the selected text
+keymap.set("v", "<Tab>", ">gv", { noremap = true, silent = true })
+keymap.set("v", "<S-Tab>", "<gv", { noremap = true, silent = true })

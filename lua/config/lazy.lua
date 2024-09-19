@@ -21,6 +21,7 @@ require("lazy").setup({
       colorscheme = "kanagawa",
     } },
     -- import/override with your plugins
+    { import = "lazyvim.plugins.extras.coding.copilot" },
     { import = "plugins" },
   },
   defaults = {
